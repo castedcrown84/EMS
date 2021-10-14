@@ -1,36 +1,34 @@
 const inquirer = require('inquirer');
-const express = require('express');
+const express = require('express')
+
 const mysql = require('mysql2');
-const cTable = require('console.table');
+
 
 const app = express();
-
 const PORT = process.env.PORT || 3001;
 
 
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+
 
 // Connect to database
 const db = mysql.createConnection(
     {
-        host: 'localhost',
+        host: process.env.DB_HOST,
         
-        user: 'root',
+        user: process.env.DB_USER,
         
-        password: 'cats',
-        database: 'company_db'
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
     },
     console.log(`Connected to the company_db database.`)
 );
 
-app.use((req, res) => {
-    res.status(404).end();
-});
+//app.use((req, res) => {
+  //  res.status(404).end();
+//});
 
 const promptUser = () => {
-    return inquirer.prompt([
+     inquirer.prompt([
         {
             type: 'list',
             name: 'options',
@@ -48,6 +46,7 @@ const promptUser = () => {
         }
     ])
         .then((answers) => {
+            console.log(answers)
             let choices = answers.options;
             switch (choices) {
                 case 'view all departments':
@@ -76,19 +75,22 @@ const promptUser = () => {
 
                 case 'update an employee role':
                     updateEmpRole();
+               
                     break;
+                    default:
+                    quit()
             }
 
             // console.log(answers);
 
         })
-        .catch((err) => {
-            if (err) {
-                console.log(err);
-            };
-        })
+       // .catch((err) => {
+         //   if (err) {
+           //     console.log(err);
+            //};
+       // })
 };
-
+promptUser();
 const viewAllDept = () => {
 
     console.log('Assesed viewAllDept function');
@@ -425,8 +427,15 @@ const updateEmpRole = () => {
         })
     });
 };
+function quit() {
+    console.log("Goodbye!");
+    process.exit();
+  }
+  
 
-promptUser();
+
+
+
 
 app.listen(PORT, () => { });
 
