@@ -1,4 +1,4 @@
-## Employee Traceker or Employee Management System
+## Employee Tracker or Employee Management System
 
 ## Description
 
@@ -24,3 +24,4 @@ https://watch.screencastify.com/v/v1Mq88FNSNOYU0FmDDbo
 
 
 Important Note: Inquirer was working on my windows machine, so i clone my repository in a newfolder and completed the project on my wife's mac.
+
