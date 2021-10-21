@@ -22,3 +22,5 @@ Run an npm install. Go to the db folder and open the integrated terminal. type i
 ## Demo Links
 https://watch.screencastify.com/v/v1Mq88FNSNOYU0FmDDbo
 
+
+Important Note: Inquirer was working on my windows machine, so i clone my repository in a newfolder and completed the project on my wife's mac.
