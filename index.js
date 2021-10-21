@@ -13,12 +13,12 @@ const PORT = process.env.PORT || 3001;
 // Connect to database
 const db = mysql.createConnection(
     {
-        host: process.env.DB_HOST,
+        host: "localhost",
         
-        user: process.env.DB_USER,
+        user: "root",
         
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME
+        password: "Salvation1!",
+        database: "company_db"
     },
     console.log(`Connected to the company_db database.`)
 );
