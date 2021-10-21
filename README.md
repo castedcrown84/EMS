@@ -7,10 +7,10 @@ This application is a command line interface that allows the user to access info
 
 ## Prerequisites
 
-Node
-inquirer
-express 
-MySQL(relational database)
+Node,
+inquirer,
+express, 
+MySQL(relational database),
 console.table
 ----
 
